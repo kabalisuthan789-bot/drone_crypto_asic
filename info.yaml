@@ -1,10 +1,19 @@
----
+yaml_version: 2
+
 project:
   title:        "ChaCha20 Hardware Crypto Accelerator"
+  author:       "Abisri M"
+  discord:      ""
   description:  "Area-optimized folded RFC 8439 ChaCha20 stream cipher engine with 8-bit multiplexed bus."
   language:     "Verilog"
   clock_hz:     50000000
   tiles:        "1x2"
+  top_module:   "tt_um_chacha20"
+  source_files:
+    - "chacha_qr.v"
+    - "chacha_core.v"
+    - "chacha_stream_cipher.v"
+    - "tt_um_chacha20.v"
 
 documentation:
   author:       "Abisri M"
@@ -14,32 +23,31 @@ documentation:
   how_it_works: "A folded Quarter-Round state machine computes 80 iterations over 16 internal 32-bit registers."
   how_to_test:  "Shift 32 key bytes, 12 nonce bytes, and counter, pulse start, stream data through ui_in to uo_out."
 
-ui:
-  - "ui_in[0]"
-  - "ui_in[1]"
-  - "ui_in[2]"
-  - "ui_in[3]"
-  - "ui_in[4]"
-  - "ui_in[5]"
-  - "ui_in[6]"
-  - "ui_in[7]"
-
-uo:
-  - "uo_out[0]"
-  - "uo_out[1]"
-  - "uo_out[2]"
-  - "uo_out[3]"
-  - "uo_out[4]"
-  - "uo_out[5]"
-  - "uo_out[6]"
-  - "uo_out[7]"
-
-uio:
-  - "uio_in[0] (target select bit 0)"
-  - "uio_in[1] (target select bit 1)"
-  - "uio_in[2] (byte write strobe)"
-  - "uio_in[3] (start cipher trigger)"
-  - "uio_in[4] (stream valid in)"
-  - "uio_in[5] (stream last block byte)"
-  - "uio_out[6] (core ready flag)"
-  - "uio_out[7] (stream valid out flag)"
+pinout:
+  ui:
+    - "ui_in[0]"
+    - "ui_in[1]"
+    - "ui_in[2]"
+    - "ui_in[3]"
+    - "ui_in[4]"
+    - "ui_in[5]"
+    - "ui_in[6]"
+    - "ui_in[7]"
+  uo:
+    - "uo_out[0]"
+    - "uo_out[1]"
+    - "uo_out[2]"
+    - "uo_out[3]"
+    - "uo_out[4]"
+    - "uo_out[5]"
+    - "uo_out[6]"
+    - "uo_out[7]"
+  uio:
+    - "uio_in[0] (target select bit 0)"
+    - "uio_in[1] (target select bit 1)"
+    - "uio_in[2] (byte write strobe)"
+    - "uio_in[3] (start cipher trigger)"
+    - "uio_in[4] (stream valid in)"
+    - "uio_in[5] (stream last block byte)"
+    - "uio_out[6] (core ready flag)"
+    - "uio_out[7] (stream valid out flag)"
