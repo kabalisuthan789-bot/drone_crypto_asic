@@ -7,7 +7,7 @@ project:
   description:  "Area-optimized folded RFC 8439 ChaCha20 stream cipher engine with 8-bit multiplexed bus."
   language:     "Verilog"
   clock_hz:     50000000
-  tiles:        "1x2"
+  tiles:        "4x2"
   top_module:   "tt_um_chacha20"
   source_files:
     - "chacha_qr.v"
