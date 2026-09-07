@@ -14,7 +14,7 @@
   "//": "PL_TARGET_DENSITY_PCT - You can increase this if Global Placement fails with error GPL-0302.",
   "//": "Users have reported that values up to 80 worked well for them.",
   "PL_TARGET_DENSITY_PCT": 35,
-  "GRT_REPAIR_ANTENNAS": true,
+  "GRT_REPAIR_ANTENNAS": false,
   "RUN_CTS": true,
   "VERILOG_FILES": [
     "dir::chacha_qr.v",
