@@ -13,9 +13,9 @@
 
   "//": "PL_TARGET_DENSITY_PCT - You can increase this if Global Placement fails with error GPL-0302.",
   "//": "Users have reported that values up to 80 worked well for them.",
-  "PL_TARGET_DENSITY_PCT": 45,
+  "PL_TARGET_DENSITY_PCT": 28,
   "GRT_ALLOW_CONGESTION": true,
-  "DRT_OPT_ITERS": 10,
+  "DRT_OPT_ITERS": 3,
   "ROUTING_CORES": 2,
   "GRT_REPAIR_ANTENNAS": false,
   "RUN_CTS": true,
