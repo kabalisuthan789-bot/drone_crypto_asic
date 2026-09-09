@@ -7,7 +7,7 @@
 
   "//": "Target density: 28% gives routing tracks breathing room to avoid rip-up congestion",
   "PL_TARGET_DENSITY_PCT": 28,
-  "DRT_OPT_ITERS": 1,
+  "DRT_OPT_ITERS": 0,
   "ROUTING_CORES": 2,
   "GRT_REPAIR_ANTENNAS": false,
   "RUN_CTS": true,
