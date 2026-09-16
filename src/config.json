@@ -1,75 +1,26 @@
 {
-  "//": "Default configuration for Tiny Tapeout designs",
-  "//": "See https://tinytapeout.com/faq/#how-to-fix-build-errors for more info",
-
-  "//": "Design name must match the name of the top-level module in your verilog file",
   "DESIGN_NAME": "tt_um_chacha20",
-
-  "//": "Target density: 28% gives routing tracks breathing room to avoid rip-up congestion",
-  "PL_TARGET_DENSITY_PCT": 28,
-  "DRT_OPT_ITERS": 0,
-  "ROUTING_CORES": 2,
-  "GRT_REPAIR_ANTENNAS": false,
-  "RUN_CTS": true,
-
   "VERILOG_FILES": [
-    "dir::chacha_qr.v",
-    "dir::chacha_core.v",
-    "dir::chacha_stream_cipher.v",
-    "dir::tt_um_chacha20.v"
+    "dir::src/chacha_qr.v",
+    "dir::src/chacha_core.v",
+    "dir::src/chacha_stream_cipher.v",
+    "dir::src/tt_um_chacha20.v"
   ],
-
-  "//": "CLOCK_PERIOD - Increase this in case you are getting setup time violations.",
-  "//": "The value is in nanoseconds, so 20ns == 50MHz.",
   "CLOCK_PERIOD": 20,
-
-  "//": "Hold slack margin - Increase them in case you are getting hold violations.",
+  "CLOCK_PORT": "clk",
+  "CLOCK_NET": "clk",
+  "PL_TARGET_DENSITY": 0.32,
+  "FP_CORE_UTIL": 30,
+  "PL_BASIC_PLACEMENT": 0,
+  "GRT_ADJUSTMENT": 0.2,
+  "GLB_RT_ADJUSTMENT": 0.25,
+  "GRT_ALLOW_CONGESTION": 0,
+  "ROUTING_CORES": 4,
   "PL_RESIZER_HOLD_SLACK_MARGIN": 0.1,
   "GRT_RESIZE_HOLD_SLACK_MARGIN": 0.05,
-
-  "//": "RUN_LINTER, LINTER_INCLUDE_PDK_MODELS - Disabling the linter is not recommended!",
   "RUN_LINTER": 1,
   "LINTER_INCLUDE_PDK_MODELS": 1,
-
-  "//": "If you need a custom clock configuration, read the following documentation first:",
-  "//": "https://tinytapeout.com/faq/#how-can-i-map-an-additional-external-clock-to-one-of-the-gpios",
-  "CLOCK_PORT": "clk",
-
-  "//": "Configuration docs: https://librelane.readthedocs.io/en/latest/reference/configuration.html",
-
-  "//": "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
-  "//": "!!! DO NOT CHANGE ANYTHING BELOW THIS POINT !!!",
-  "//": "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
-
-  "//": "Save some time",
-  "RUN_KLAYOUT_XOR": 0,
-  "RUN_KLAYOUT_DRC": 0,
-
-  "//": "Don't put clock buffers on the outputs",
-  "DESIGN_REPAIR_BUFFER_OUTPUT_PORTS": 0,
-
-  "//": "Reduce wasted space",
-  "TOP_MARGIN_MULT": 1,
-  "BOTTOM_MARGIN_MULT": 1,
-  "LEFT_MARGIN_MULT": 6,
-  "RIGHT_MARGIN_MULT": 6,
-
-  "//": "Absolute die size",
-  "FP_SIZING": "absolute",
-
-  "GRT_ALLOW_CONGESTION": 1,
-
-  "FP_IO_HLENGTH": 2,
-  "FP_IO_VLENGTH": 2,
-
-  "FP_PDN_VPITCH": 38.87,
-
-  "//": "Don't generate power rings",
-  "FP_PDN_MULTILAYER": 0,
-
-  "//": "MAGIC_DEF_LABELS may cause issues with LVS",
-  "MAGIC_DEF_LABELS": 0,
-
-  "//": "Only export pin area in LEF (without any connected nets)",
-  "MAGIC_WRITE_LEF_PINONLY": 1
+  "RUN_KLAYOUT": 1,
+  "RUN_MAGIC": 1,
+  "RUN_CUDD": 0
 }
