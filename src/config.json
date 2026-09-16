@@ -10,7 +10,7 @@
   "CLOCK_PORT": "clk",
   "CLOCK_NET": "clk",
   "PL_TARGET_DENSITY": 0.32,
-  "FP_CORE_UTIL": 30,
+  "RT_MAX_LAYER": "met4",
   "PL_BASIC_PLACEMENT": 0,
   "GRT_ADJUSTMENT": 0.2,
   "GLB_RT_ADJUSTMENT": 0.25,
