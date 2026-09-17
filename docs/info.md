@@ -1,20 +1,12 @@
-<!---
-
-This file is used to generate your project datasheet. Please fill in the information below and delete any unused
-sections.
-
-You can also include images in this folder and reference them in the markdown. Each image must be less than
-512 kb in size, and the combined size of all images must be less than 1 MB.
--->
+# ChaCha20 Stream Cipher ASIC Core
 
 ## How it works
 
-Explain how your project works
+This project implements an area-optimized ChaCha20 stream cipher compliant with RFC 8439. 
+It features a folded quarter-round execution engine designed to balance high cryptographic throughput with minimal silicon footprint on the SkyWater 130nm process node. 
+
+The core interfaces through 8-bit bidirectional parallel I/O ports (`ui_in`, `uo_out`, `uio_in`, `uio_out`, `uio_oe`) controlled by standard clock and active-low reset inputs.
 
 ## How to test
 
-Explain how to use your project
-
-## External hardware
-
-List external hardware used in your project (e.g. PMOD, LED display, etc), if any
+Apply clock pulses while holding `rst_n` low to initialize internal state registers. Release `rst_n` high and drive initialization vectors (key, nonce, counter) via the input bus. Monitor the output bus `uo_out` for the resulting ChaCha20 keystream bytes.
