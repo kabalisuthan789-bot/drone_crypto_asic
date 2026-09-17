@@ -6,7 +6,9 @@ SIM ?= icarus
 FST ?= -fst # Use more efficient FST format
 TOPLEVEL_LANG ?= verilog
 SRC_DIR = $(PWD)/../src
-PROJECT_SOURCES = project.v
+
+# Include all module source files
+PROJECT_SOURCES = chacha_qr.v chacha_core.v chacha_stream_cipher.v tt_um_chacha20.v
 
 ifneq ($(GATES),yes)
 
