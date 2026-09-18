@@ -87,12 +87,10 @@ module chacha_core (
                 end
 
                 S_INIT: begin
-                    // ChaCha20 constant words
                     state[0]  <= 32'h61707865;
                     state[1]  <= 32'h3320646e;
                     state[2]  <= 32'h79622d32;
                     state[3]  <= 32'h6b206574;
-                    // 256-bit Key
                     state[4]  <= key[31:0];
                     state[5]  <= key[63:32];
                     state[6]  <= key[95:64];
@@ -101,9 +99,7 @@ module chacha_core (
                     state[9]  <= key[191:160];
                     state[10] <= key[223:192];
                     state[11] <= key[255:224];
-                    // 32-bit Counter
                     state[12] <= counter;
-                    // 96-bit Nonce
                     state[13] <= nonce[31:0];
                     state[14] <= nonce[63:32];
                     state[15] <= nonce[95:64];
@@ -133,7 +129,7 @@ module chacha_core (
 
                 S_ROUNDS: begin
                     case (sub_step)
-                        2'd0: begin // a = a + b; d = (d ^ a) <<< 16;
+                        2'd0: begin
                             qr_in1 <= state[idx_a];
                             qr_in2 <= state[idx_b];
                             rot_amt <= 5'd16;
@@ -141,7 +137,7 @@ module chacha_core (
                             state[idx_d] <= rot_res;
                             sub_step <= 2'd1;
                         end
-                        2'd1: begin // c = c + d; b = (b ^ c) <<< 12;
+                        2'd1: begin
                             qr_in1 <= state[idx_c];
                             qr_in2 <= state[idx_d];
                             rot_amt <= 5'd12;
@@ -149,7 +145,7 @@ module chacha_core (
                             state[idx_b] <= rot_res;
                             sub_step <= 2'd2;
                         end
-                        2'd2: begin // a = a + b; d = (d ^ a) <<< 8;
+                        2'd2: begin
                             qr_in1 <= state[idx_a];
                             qr_in2 <= state[idx_b];
                             rot_amt <= 5'd8;
@@ -157,7 +153,7 @@ module chacha_core (
                             state[idx_d] <= rot_res;
                             sub_step <= 2'd3;
                         end
-                        2'd3: begin // c = c + d; b = (b ^ c) <<< 7;
+                        2'd3: begin
                             qr_in1 <= state[idx_c];
                             qr_in2 <= state[idx_d];
                             rot_amt <= 5'd7;
