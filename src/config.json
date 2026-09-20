@@ -19,5 +19,8 @@
   "FP_PDN_VOFFSET": 5,
   "FP_PDN_HOFFSET": 5,
 
-  "RT_MAX_LAYER": "met4"
+  "RT_MAX_LAYER": "met4",
+
+  "RUN_KLAYOUT_XOR": false,
+  "MAGIC_DRC_USE_GDS": false
 }
