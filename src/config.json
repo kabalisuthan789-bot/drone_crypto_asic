@@ -11,8 +11,12 @@
   "CLOCK_PORT": "clk",
   "CLOCK_NET": "clk",
 
+  "FP_SIZING": "absolute",
+  "DIE_AREA": "0 0 682.64 225.76",
+  "CORE_AREA": "10 10 672.64 215.76",
+
   "SYNTH_STRATEGY": "AREA 0",
-  "PL_TARGET_DENSITY": 0.48,
+  "PL_TARGET_DENSITY": 0.45,
 
   "PL_RESIZER_ALLOW_SETUP_VIOS": true,
   "PL_RESIZER_HOLD_MAX_BUFFER_PERCENT": 50,
@@ -21,6 +25,9 @@
   "PL_RESIZER_BUFFER_INPUT_PORTS": true,
   "PL_RESIZER_BUFFER_OUTPUT_PORTS": true,
 
+  "FP_PDN_MULTILAYER": false,
+  "FP_PDN_VLAYER": "met4",
+  "FP_PDN_HLAYER": "met3",
   "FP_PDN_VPITCH": 180,
   "FP_PDN_HPITCH": 180,
   "FP_PDN_VOFFSET": 5,
@@ -28,8 +35,7 @@
 
   "RT_MAX_LAYER": "met4",
   "GRT_MAX_LAYER": "met4",
-  "FP_PDN_VLAYER": "met4",
-  "FP_PDN_HLAYER": "met3",
+  "MAX_ROUTING_LAYER": "met4",
 
   "RUN_KLAYOUT_XOR": false,
   "MAGIC_DEF_LABELS": 0
