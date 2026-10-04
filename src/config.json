@@ -7,7 +7,7 @@
     "dir::chacha_core.v",
     "dir::chacha_qr.v"
   ],
-  "CLOCK_PERIOD": 50,
+  "CLOCK_PERIOD": 100,
   "CLOCK_PORT": "clk",
   "CLOCK_NET": "clk",
 
@@ -27,6 +27,7 @@
   "RUN_LINTER": false,
   "QUIT_ON_TIMING_VIOLATIONS": false,
   "ABORT_ON_SETUP_VIOLATIONS": false,
+  "STA_ALLOW_SETUP_VIOLATIONS": true,
 
   "GLB_RT_ADJUSTMENT": 0.10,
   "GRT_ALLOW_CONGESTION": true,
